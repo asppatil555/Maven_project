@@ -2,6 +2,7 @@ package MavenProject.Entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -10,7 +11,8 @@ import jakarta.persistence.Table;
 @Table(name="student_data")                            // This will change the table name from Student to student_data
 public class Student {
 	
-	@Id                                                 //to set id as a primary key 
+	@Id  
+	//@GeneratedValue(strategy=Genera)
 	private int id;
 	
 	private String fname;
@@ -24,13 +26,14 @@ public class Student {
 	
 	private String gender;
 
+	public void setId(int id) {
+		this.id=id;
+	}
 	public int getId() {
 		return id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
+	
 
 	public String getFname() {
 		return fname;
@@ -70,6 +73,11 @@ public class Student {
 
 	public void setGender(String gender) {
 		this.gender = gender;
+	}
+	@Override
+	public String toString() {
+		return "Student [id=" + id + ", fname=" + fname + ", lname=" + lname + ", mobileNumber=" + mobileNumber
+				+ ", city=" + city + ", gender=" + gender + "]";
 	}
 	
 	
